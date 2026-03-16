@@ -512,7 +512,9 @@ a {
     .hero-content {
         padding: 80px 20px 20px 20px; 
     }
-    
+    .hero-title {
+        font-size: 3rem;
+    }
     .hero-image {
         width: 100%;
         justify-content: center;
@@ -580,8 +582,8 @@ a {
 }
 
 .brand-box img {
-   max-width: 60%;
-   max-height: 50px;
+   max-width: 80%;
+   max-height: 70px;
    object-fit: contain;
    transition: 0.3s;
 }

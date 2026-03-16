@@ -27,21 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* =============== BRAND STRIP =============== */
 const groupA = [
-    './assets/images/brands/bloomberg.png',
-    './assets/images/brands/fm.png',
-    './assets/images/brands/investment.png',
-    './assets/images/brands/forbes.png',
-    './assets/images/brands/fxempire.png',
-    './assets/images/brands/yahoo.png'
+    '../assets/images/brands/bloomberg.png',
+    '../assets/images/brands/fm.png',
+    '../assets/images/brands/investment.png',
+    '../assets/images/brands/forbes.png',
+    '../assets/images/brands/fxempire.png',
+    '../assets/images/brands/yahoo.png'
 ];
 
 const groupB = [
-    './assets/images/brands/marketsinsiders.png',
-    './assets/images/brands/benzinga.png',
-    './assets/images/brands/fintechreview.png',
-    './assets/images/brands/adven.png',
-    './assets/images/brands/financialtechtime.png',
-    './assets/images/brands/financewire.png' // Add a 6th one here!
+    '../assets/images/brands/marketsinsiders.png',
+    '../assets/images/brands/benzinga.png',
+    '../assets/images/brands/fintechreview.png',
+    '../assets/images/brands/adven.png',
+    '../assets/images/brands/financialtechtime.png',
+    '../assets/images/brands/financewire.png' // Add a 6th one here!
 ];
 
 function flipBrands() {

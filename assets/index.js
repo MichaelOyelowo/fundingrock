@@ -27,21 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* =============== BRAND STRIP =============== */
 const groupA = [
-    '../assets/images/brands/bloomberg.png',
-    '../assets/images/brands/fm.png',
-    '../assets/images/brands/investment.png',
-    '../assets/images/brands/forbes.png',
-    '../assets/images/brands/fxempire.png',
-    '../assets/images/brands/yahoo.png'
+    './assets/images/brands/bloomberg.png',
+    './assets/images/brands/fm.png',
+    './assets/images/brands/investment.png',
+    './assets/images/brands/forbes.png',
+    './assets/images/brands/fxempire.png',
+    './assets/images/brands/yahoo.png'
 ];
 
 const groupB = [
-    '../assets/images/brands/marketsinsiders.png',
-    '../assets/images/brands/benzinga.png',
-    '../assets/images/brands/fintechreview.png',
-    '../assets/images/brands/adven.png',
-    '../assets/images/brands/financialtechtime.png',
-    '../assets/images/brands/financewire.png' // Add a 6th one here!
+    './assets/images/brands/marketsinsiders.png',
+    './assets/images/brands/benzinga.png',
+    './assets/images/brands/fintechreview.png',
+    './assets/images/brands/adven.png',
+    './assets/images/brands/financialtechtime.png',
+    './assets/images/brands/financewire.png'
 ];
 
 function flipBrands() {
@@ -67,42 +67,4 @@ function flipBrands() {
     });
 }
 
-setInterval(flipBrands, 5000); // Flip every 5 seconds
-
-
-    // let waitingLogos = [
-    //     './assets/images/brands/fm.png',
-    //     './assets/images/brands/forbes.png',
-    //     './assets/images/brands/fxempire.png',
-    //     './assets/images/brands/forbes.png',
-    //     './assets/images/brands/marketsinsiders.png',
-    //     './assets/images/brands/yahoo.png'
-    // ];
-
-    // const boxes = document.querySelectorAll('.brand-box');
-
-    // function flipRandomLogo() {
-    //     if (waitingLogos.length === 0 || boxes.length === 0) return;
-
-    //     // 2. Pick a random box on the screen
-    //     const randomBoxIndex = Math.floor(Math.random() * boxes.length);
-    //     const box = boxes[randomBoxIndex];
-    //     const inner = box.querySelector('.flip-inner');
-
-    //     // Find which side is currently facing the user
-    //     const isFlipped = inner.classList.contains('flipped');
-    //     const visibleImg = isFlipped ? box.querySelector('.flip-back img') : box.querySelector('.flip-front img');
-    //     const hiddenImg = isFlipped ? box.querySelector('.flip-front img') : box.querySelector('.flip-back img');
-
-    //     const readyLogoSrc = hiddenImg.getAttribute('data-src');
-    //     hiddenImg.setAttribute('src', readyLogoSrc);
-    //     const currentVisibleSrc = visibleImg.getAttribute('src');
-    //     const randomBenchIndex = Math.floor(Math.random() * waitingLogos.length);
-    //     const nextLogoForLater = waitingLogos[randomBenchIndex];
-
-    //     waitingLogos[randomBenchIndex] = currentVisibleSrc;
-    //     visibleImg.setAttribute('data-src', nextLogoForLater);
-
-    //     inner.classList.toggle('flipped');
-    // }
-    // setInterval(flipRandomLogo, 3000);
+setInterval(flipBrands, 5000);

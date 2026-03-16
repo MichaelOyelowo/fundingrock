@@ -594,3 +594,416 @@ a {
     .brand-box { border-bottom: 1px solid #222; }
     
 }
+
+/* =============== HOW TO START SECTION =============== */
+
+.how-to-start {
+    text-align: center;
+    padding: 130px 48px 60px;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 4rem;
+    color: rgba(255, 255, 255, 0.76);
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    font-weight: 100;
+    line-height: 1.5rem;
+    color: rgba(255, 255, 255, 0.76);
+    margin-bottom: 1.5rem;
+}
+
+.get-started-btn-section {
+    background-color: #D9FF00;
+    color: #0e0e0e;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 13px 39px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 2.5rem;
+}
+
+.steps {
+    display: flex;
+    gap: 48px;
+    margin-bottom: 80px;
+    width: 100%;
+}
+
+.step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    position: relative;
+    text-align: left;
+}
+
+.step-badge {
+    align-self: flex-start; 
+    display: inline-block;
+    border-radius: 17px;
+    margin-bottom: 21px;
+    color: #8042FF;
+    border: 1px solid #8042FF;
+    background: black;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px;
+    padding: 8px 16px;
+}
+
+.step-title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.step-description {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 22px;
+    color: rgba(255, 255, 255, 0.76);
+    margin-bottom: 40px;
+}
+
+.step-content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.step-content::-webkit-scrollbar {
+    display: none; 
+}
+
+.step-1 {
+    background: linear-gradient(223deg, rgb(71, 40, 134.5) 0%, #0e0e0e 35%, #0e0e0e 100%) padding-box,
+                linear-gradient(225deg, #8042FF 0%, #303030 50%) border-box, #0e0e0e;
+}
+
+label[for*=account-option] > input {
+    display: none;
+}
+
+.account-option {
+    background-color: rgba(128, 66, 255, 0.1);
+    border-radius: 6px;
+    padding: 18px;
+    margin-bottom: 12px;
+    text-align: center;
+    scroll-snap-align: start;
+}
+
+.account-amount {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.step-2 {
+    background: linear-gradient(223deg, rgb(7, 115, 104.5) 0%, #0e0e0e 35%, #0e0e0e 100%) padding-box, 
+                linear-gradient(225deg, #00bba9 0%, #303030 50%) border-box, #0e0e0e;
+}
+
+.step-2 .step-badge {
+    color: #00D8C3;
+    border: 1px solid #00D8C3;
+    background: black;
+    border-radius: 50px;
+}
+
+.trading-card {
+    background-color: rgba(0, 216, 195, 0.1);
+    border-radius: 6px;
+    padding: 13px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.trader-avatar {
+    width: 33px;
+    height: 33px;
+    border-radius: 16px;
+}
+
+.trader-name {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.mini-chart {
+    width: 74px;
+    height: 27px;
+}
+
+.trader-stats {
+    margin-left: auto;
+    text-align: right;
+}
+
+.trader-amount {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 16px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.trader-percentage {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 3px;
+}
+
+.percentage-icon {
+    background-color: rgba(24, 204, 204, 0.0980392157);
+    border-radius: 3px 4px 4px 4px;
+    width: 13px;
+    height: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.percentage-text {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
+    color: #00D8C3;
+}
+
+.step-3 {
+    background: linear-gradient(223deg, rgb(134.5, 23.5, 50) 0%, #0e0e0e 35%, #0e0e0e 100%) padding-box, 
+    linear-gradient(225deg, #ff2156 0%, #303030 50%) border-box;
+    overflow: hidden;
+}
+
+.step-3 .step-badge {
+    color: #ff2156;
+    background: black;
+    border: 1px solid #ff2156;
+}
+
+.step-3 .step-content {
+    margin-right: -32px; 
+    margin-bottom: -32px; 
+    margin-top: 10px;
+    background-color: rgba(255, 33, 86, 0.05);
+    border-top: 1px solid rgba(255, 33, 86, 0.15);
+    border-left: 1px solid rgba(255, 33, 86, 0.15);
+    border-radius: 8px 0 0 0;
+    display: flex;
+    flex: 1;
+    position: relative;
+}
+
+.chart-tools {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    gap: 20px;
+    padding: 16px 12px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.demo-tool {
+    width: 16px;
+    height: 16px;
+    opacity: 0.5;
+}
+
+.step-3 .chart-section {
+    flex-grow: 1; 
+    padding: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.step-3 .chart-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.chart-timeframes {
+    display: flex;
+    gap: 14px;
+}
+
+.timeframe, .chart-pair {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
+    color: #c4c4c4;
+    cursor: pointer;
+}
+
+.timeframe.active {
+    color: #D9FF00;
+}
+
+.chart-grid {
+    position: relative;
+    flex: 1; 
+}
+
+.candlesticks {
+    width: 100%;
+    height: auto;
+    max-height: 140px;
+    object-fit: contain;
+    object-position: left top;
+}
+
+.chart-times {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.chart-time {
+    font-size: 7px;
+    font-weight: 400;
+    line-height: 9px;
+    color: #c4c4c4;
+}
+
+.step-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to top, #0e0e0e 10%, transparent 100%);
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Why Choose */
+
+.why-choose {
+    margin-bottom: 59px;
+}
+
+.why-choose-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.highlight {
+    color: #D9FF00;
+}
+
+.features {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 110px;
+}
+
+.feature {
+    flex: 1;
+    text-align: center;
+    opacity: 1;
+    transform: translateY(0px);
+    transition: opacity 0.6s, transform 0.6s;
+}
+
+.feature-title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.feature-description {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* =============== RESPONSIVE: TABLET & MOBILE =============== */
+@media (max-width: 1024px) {
+    .how-to-start {
+        padding: 80px 24px 60px;
+    }
+    .section-title {
+        font-size: 2.5rem;
+        line-height: 3.2rem;
+    }
+    .steps {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 24px;
+        padding-bottom: 20px;
+        scrollbar-width: none; 
+        -ms-overflow-style: none; 
+    }
+    .steps::-webkit-scrollbar {
+        display: none; 
+    }
+    .step {
+        flex: 0 0 340px; 
+        scroll-snap-align: center;
+    }
+    .features {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .feature {
+        max-width: 340px;
+    }
+}
+
+/* =============== RESPONSIVE: SMALL MOBILE ONLY =============== */
+@media (max-width: 600px) {
+    .how-to-start {
+        padding: 60px 16px 40px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        line-height: 2.4rem;
+    }
+
+    .steps {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding-bottom: 20px;
+    }
+}

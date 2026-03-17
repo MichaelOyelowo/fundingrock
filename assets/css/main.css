@@ -1285,8 +1285,8 @@ label[for*=account-option] > input {
 .modal-content {
     position: relative;
     margin: auto;
-    top: 70%;
-    transform: translateY(-70%);
+    top: 50%;
+    transform: translateY(-50%);
     width: 80%;
     max-width: 800px;
 }

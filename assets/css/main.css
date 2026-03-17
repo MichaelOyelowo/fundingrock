@@ -1095,10 +1095,10 @@ label[for*=account-option] > input {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.bg-pink { background: url(/assets/images/homepage/testimonials_card1.svg); }
-.bg-green { background: url(/assets/images/homepage/testimonial_card2a.svg), url(/assets/images/homepage/testimonials_card2b.svg); }
-.bg-purple { background: url(/assets/images/homepage/testimonials_card3.svg); }
-.bg-cyran { background: url(/assets/images/homepage/testimonial_card4b.svg); }
+.bg-pink { background: url(../images/homepage/testimonials_card1.svg); }
+.bg-green { background: url(../images/homepage/testimonial_card2a.svg), url(../images/homepage/testimonials_card2b.svg); }
+.bg-purple { background: url(../images/homepage/testimonials_card3.svg); }
+.bg-cyran { background: url(../images/homepage/testimonial_card4b.svg); }
 
 .bg-pink:hover { border: 1px solid #ff0055; }
 .bg-green:hover { border: 1px solid #70FF00;}
@@ -1171,7 +1171,7 @@ label[for*=account-option] > input {
     height: 40px;
     cursor: pointer;
     z-index: 3;
-    background: url(/assets/images/homepage/play.svg) no-repeat 0 0 / 100%;
+    background: url(../images/homepage/play.svg) no-repeat 0 0 / 100%;
     transform: scale(0.9);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }

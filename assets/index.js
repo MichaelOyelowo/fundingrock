@@ -68,3 +68,77 @@ function flipBrands() {
 }
 
 setInterval(flipBrands, 5000);
+
+/* =============== TESTIMONIALS =============== */
+
+const modal = document.getElementById('videoModal');
+const player = document.getElementById('youtubePlayer');
+const closeBtn = document.querySelector('.close-modal');
+
+document.querySelectorAll('.testimonial-card').forEach(card => {
+    card.addEventListener('click', () => {
+        const playBtn = card.querySelector('.testimonial-play');
+        let rawUrl = playBtn.getAttribute('data-yt');
+
+        // Convert standard YouTube URL to Embed format
+        // Example: watch?v=XYZ becomes /embed/XYZ
+        if (rawUrl.includes('watch?v=')) {
+            const videoId = rawUrl.split('v=')[1].split('&')[0];
+            const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            
+            player.src = embedUrl;
+            modal.style.display = 'block';
+        }
+    });
+});
+
+// Close modal when clicking 'X' or outside the video
+closeBtn.onclick = () => {
+    modal.style.display = 'none';
+    player.src = ""; // Stops the video
+};
+
+window.onclick = (event) => {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+        player.src = "";
+    }
+};
+
+// Carousel logic
+const carousel = document.querySelector('.testimonials-carousel');
+const cards = document.querySelectorAll('.testimonial-card');
+const dots = document.querySelectorAll('.carousel-dots .dot');
+
+function setActiveDot(index) {
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+}
+
+// Update on scroll using Intersection Observer
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const index = [...cards].indexOf(entry.target);
+            setActiveDot(index);
+        }
+    });
+}, {
+    root: carousel,
+    threshold: 0.6
+});
+
+cards.forEach(card => observer.observe(card));
+
+// Click a card → active dot updates
+cards.forEach((card, index) => {
+    card.addEventListener('click', () => setActiveDot(index));
+});
+
+// Click a dot → scroll to card + active dot updates
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        setActiveDot(index);
+        cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    });
+});

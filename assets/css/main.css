@@ -1313,3 +1313,172 @@ label[for*=account-option] > input {
     font-size: 3rem;
     cursor: pointer;
 }
+
+
+
+
+.account-selection {
+    max-width: 950px;
+    margin: 60px auto;
+    padding: 0 20px;
+    color: #fff;
+}
+
+/* Typography & Headers */
+.account-selection .section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.account-selection .section-subtitle {
+    text-align: center;
+    color: #999;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 48px auto;
+}
+
+/* Tab Buttons */
+.account-selection .account-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.account-selection .account-btn {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.account-selection .account-btn:hover:not(.active) {
+    border-color: #555;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.account-selection .account-btn.active {
+    background-color: #c5ff00;;
+    color: #000;
+    border-color: #c5ff00;;
+    font-weight: 600;
+}
+
+/* Comparison Table Container */
+.account-selection .comparison-table {
+    border: 1px solid #c5ff00;;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+/* Hide inactive tabs natively */
+.account-selection .comparison-table[hidden] {
+    display: none !important;
+}
+
+/* Fade in animation for active tabs */
+.account-selection .comparison-table.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Table Structure */
+.account-selection table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    min-width: 600px; /* Prevents text crushing on narrow screens */
+}
+
+.account-selection th, 
+.account-selection td {
+    padding: 24px 20px;
+    border-bottom: 1px solid #ffffff1a;
+}
+
+.account-selection table tr:last-child th,
+.account-selection table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Table Header Formatting */
+.account-selection thead th {
+    color: #c5ff00;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.account-selection thead th:first-child {
+    text-align: left;
+}
+
+.account-selection thead th:not(:first-child) {
+    text-align: center;
+}
+
+/* Table Body Formatting */
+.account-selection tbody th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.account-selection tbody td {
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Green FEE Badge */
+.account-selection .fee-badge {
+    background-color: #c5ff00;;
+    color: #000;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-block;
+}
+
+/* Utility Class (Accessibility) */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Responsive Scaling */
+@media (max-width: 768px) {
+    .account-selection .section-title {
+        font-size: 2.2rem;
+    }
+    .account-selection th, 
+    .account-selection td {
+        padding: 16px 12px;
+        font-size: 0.85rem;
+    }
+}

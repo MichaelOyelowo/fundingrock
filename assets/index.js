@@ -142,3 +142,31 @@ dots.forEach((dot, index) => {
         cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     });
 });
+
+/* =============== ACCOUNT SELECTION =============== */
+const tabs = document.querySelectorAll('.account-btn');
+const tabPanels = document.querySelectorAll('.comparison-table');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+        });
+
+        tabPanels.forEach(p => {
+            p.classList.remove('active');
+            p.setAttribute('hidden', 'true');
+        });
+
+        tab.classList.add('active');
+        tab.setAttribute('arial-selected', 'true');
+
+        const panelId = tab.getAttribute('aria-controls');
+        const panel = document.getElementById(panelId);
+        if (panel) {
+            panel.classList.add('active');
+            panel.removeAttribute('hidden');
+        }
+    });
+});

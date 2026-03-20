@@ -356,7 +356,7 @@
     <!-- Why Choose FundingRock -->
     <div class="why-choose">
         <h2 class="why-choose-title">Why Traders Choose <span class="highlight">FundingRock</span></h2>
-        <div class="features">
+        <div class="features"  id="featuresCarousel" role="region" aria-label="Key features of FundingRock" tabindex="0">
             <div class="feature">
                 <img loading="lazy" src="./assets/images/homepage/frame.svg" alt="Support" class="feature-icon">
                 <h3 class="feature-title">Reliable Trader Support</h3>
@@ -376,6 +376,12 @@
                     Competitive spreads, low swaps, and reliable execution to ensure you perform at your best.
                 </p>
             </div>
+        </div>
+        <!-- Dots: only visible on mobile via CSS -->
+        <div class="features-dots" role="tablist" aria-label="Features navigation">
+            <button class="features-dot active" role="tab" aria-selected="true"  aria-label="Go to feature 1"></button>
+            <button class="features-dot" role="tab" aria-selected="false" aria-label="Go to feature 2"></button>
+            <button class="features-dot" role="tab" aria-selected="false" aria-label="Go to feature 3"></button>
         </div>
     </div>
 </section>
@@ -484,339 +490,360 @@
         potential for higher profit targets as you grow.
     </p>
 
-    <!-- Tab Controls -->
-    <div class="account-buttons" role="tablist" aria-label="Account size options">
-        <button role="tab" aria-selected="true"  aria-controls="tab-1" id="btn-tab-1" class="account-btn active">$5,000</button>
-        <button role="tab" aria-selected="false" aria-controls="tab-2" id="btn-tab-2" class="account-btn">$10,000</button>
-        <button role="tab" aria-selected="false" aria-controls="tab-3" id="btn-tab-3" class="account-btn">$25,000</button>
-        <button role="tab" aria-selected="false" aria-controls="tab-4" id="btn-tab-4" class="account-btn">$50,000</button>
-        <button role="tab" aria-selected="false" aria-controls="tab-5" id="btn-tab-5" class="account-btn">$100,000</button>
-        <button role="tab" aria-selected="false" aria-controls="tab-6" id="btn-tab-6" class="account-btn">$200,000</button>
+    <!-- NEW WRAPPER: Creates the single green box on mobile -->
+    <div class="pricing-card-wrapper">
+        
+        <!-- Tab Controls & Mobile Arrows -->
+        <div class="account-buttons" role="tablist" aria-label="Account size options">
+            <!-- Left Arrow -->
+            <button class="slider-arrow backward" aria-label="Previous Account">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg>
+            </button>
+
+            <button role="tab" aria-selected="true"  aria-controls="tab-1" id="btn-tab-1" class="account-btn active">$5,000</button>
+            <button role="tab" aria-selected="false" aria-controls="tab-2" id="btn-tab-2" class="account-btn">$10,000</button>
+            <button role="tab" aria-selected="false" aria-controls="tab-3" id="btn-tab-3" class="account-btn">$25,000</button>
+            <button role="tab" aria-selected="false" aria-controls="tab-4" id="btn-tab-4" class="account-btn">$50,000</button>
+            <button role="tab" aria-selected="false" aria-controls="tab-5" id="btn-tab-5" class="account-btn">$100,000</button>
+            <button role="tab" aria-selected="false" aria-controls="tab-6" id="btn-tab-6" class="account-btn">$200,000</button>
+
+            <!-- Right Arrow -->
+            <button class="slider-arrow forward" aria-label="Next Account">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+            </button>
+        </div>
+
+        <!-- $5,000 Tab Panel -->
+        <div role="tabpanel" id="tab-1" aria-labelledby="btn-tab-1" class="comparison-table active">
+            <table data-active-col="1">
+                <caption class="visually-hidden">$5,000 account - challenge conditions</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <span class="fee-badge">FEE: $59</span>
+                        </th>
+                        <!-- Added 'active-tab' class to the first phase -->
+                        <th scope="col" class="active-tab">PHASE 1</th>
+                        <th scope="col">PHASE 2</th>
+                        <th scope="col">FUNDED</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Profit Target</th>
+                        <td>8% ($400)</td>
+                        <td>5% ($250)</td>
+                        <td aria-label="Not applicable">–</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Max Daily Loss</th>
+                        <td>5% ($250)</td>
+                        <td>5% ($250)</td>
+                        <td>5% ($250)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Max Loss</th>
+                        <td>10% ($500)</td>
+                        <td>10% ($500)</td>
+                        <td>10% ($500)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Min Days</th>
+                        <td>4</td>
+                        <td>4</td>
+                        <td aria-label="Not applicable">–</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Refundable Fee</th>
+                        <td aria-label="Not applicable">–</td>
+                        <td aria-label="Not applicable">–</td>
+                        <td>$59</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Leverage</th>
+                        <td>1:100</td>
+                        <td>1:100</td>
+                        <td>1:100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- $10,000 Tab Panel -->
+        <div role="tabpanel" id="tab-2" aria-labelledby="btn-tab-2" class="comparison-table" hidden>
+            <table>
+                <caption class="visually-hidden">$10,000 account - challenge conditions</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <span class="fee-badge">FEE: $99</span>
+                        </th>
+                        <th scope="col">Phase 1</th>
+                        <th scope="col">Phase 2</th>
+                        <th scope="col">Funded</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Profit Target</th>
+                        <td>8% ($800)</td>
+                        <td>5% ($500)</td>
+                        <td aria-label="Not applicable">–</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Max Daily Loss</th>
+                        <td>5% ($500)</td>
+                        <td>5% ($500)</td>
+                        <td>5% ($500)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Max Loss</th>
+                        <td>10% ($1000)</td>
+                        <td>10% ($1000)</td>
+                        <td>10% ($1000)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Min Days</th>
+                        <td>4</td>
+                        <td>4</td>
+                        <td aria-label="Not applicable">–</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Refundable Fee</th>
+                        <td aria-label="Not applicable">–</td>
+                        <td aria-label="Not applicable">–</td>
+                        <td>$99</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Leverage</th>
+                        <td>1:100</td>
+                        <td>1:100</td>
+                        <td>1:100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- $25,000 Tab Panel -->
+        <div role="tabpanel" id="tab-3" aria-labelledby="btn-tab-3" class="comparison-table" hidden>
+            <table>
+                <caption class="visually-hidden">$25,000 account - challenge conditions</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <span class="fee-badge">FEE: $219</span>
+                        </th>
+                        <th scope="col">Phase 1</th>
+                        <th scope="col">Phase 2</th>
+                        <th scope="col">Funded</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Profit Target</th>
+                        <td>8% ($2000)</td>
+                        <td>5% ($1250)</td>
+                        <td aria-label="Not applicable">–</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Max Daily Loss</th>
+                        <td>5% ($1250)</td>
+                        <td>5% ($1250)</td>
+                        <td>5% ($1250)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Max Loss</th>
+                        <td>10% ($2500)</td>
+                        <td>10% ($2500)</td>
+                        <td>10% ($2500)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Min Days</th>
+                        <td>4</td>
+                        <td>4</td>
+                        <td aria-label="Not applicable">–</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Refundable Fee</th>
+                        <td aria-label="Not applicable">–</td>
+                        <td aria-label="Not applicable">–</td>
+                        <td>$219</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Leverage</th>
+                        <td>1:100</td>
+                        <td>1:100</td>
+                        <td>1:100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- $50,000 Tab Panel -->
+        <div role="tabpanel" id="tab-4" aria-labelledby="btn-tab-4" class="comparison-table" hidden>
+            <table>
+                <caption class="visually-hidden">$50,000 account - challenge conditions</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <span class="fee-badge">FEE: $349</span>
+                        </th>
+                        <th scope="col">Phase 1</th>
+                        <th scope="col">Phase 2</th>
+                        <th scope="col">Funded</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Profit Target</th>
+                        <td>8% ($4000)</td>
+                        <td>5% ($2500)</td>
+                        <td aria-label="Not applicable">–</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Max Daily Loss</th>
+                        <td>5% ($2500)</td>
+                        <td>5% ($2500)</td>
+                        <td>5% ($2500)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Max Loss</th>
+                        <td>10% ($5000)</td>
+                        <td>10% ($5000)</td>
+                        <td>10% ($5000)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Min Days</th>
+                        <td>4</td>
+                        <td>4</td>
+                        <td aria-label="Not applicable">–</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Refundable Fee</th>
+                        <td aria-label="Not applicable">–</td>
+                        <td aria-label="Not applicable">–</td>
+                        <td>$349</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Leverage</th>
+                        <td>1:100</td>
+                        <td>1:100</td>
+                        <td>1:100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- $100,000 Tab Panel -->
+        <div role="tabpanel" id="tab-5" aria-labelledby="btn-tab-5" class="comparison-table" hidden>
+            <table>
+                <caption class="visually-hidden">$100,000 account - challenge conditions</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <span class="fee-badge">FEE: $549</span>
+                        </th>
+                        <th scope="col">Phase 1</th>
+                        <th scope="col">Phase 2</th>
+                        <th scope="col">Funded</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Profit Target</th>
+                        <td>8% ($8000)</td>
+                        <td>5% ($5000)</td>
+                        <td aria-label="Not applicable">–</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Max Daily Loss</th>
+                        <td>5% ($5000)</td>
+                        <td>5% ($5000)</td>
+                        <td>5% ($5000)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Max Loss</th>
+                        <td>10% ($10000)</td>
+                        <td>10% ($10000)</td>
+                        <td>10% ($10000)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Min Days</th>
+                        <td>4</td>
+                        <td>4</td>
+                        <td aria-label="Not applicable">–</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Refundable Fee</th>
+                        <td aria-label="Not applicable">–</td>
+                        <td aria-label="Not applicable">–</td>
+                        <td>$549</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Leverage</th>
+                        <td>1:100</td>
+                        <td>1:100</td>
+                        <td>1:100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- $200,000 Tab Panel -->
+        <div role="tabpanel" id="tab-6" aria-labelledby="btn-tab-6" class="comparison-table" hidden>
+            <table>
+                <caption class="visually-hidden">$200,000 account - challenge conditions</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <span class="fee-badge">FEE: $999</span>
+                        </th>
+                        <th scope="col">Phase 1</th>
+                        <th scope="col">Phase 2</th>
+                        <th scope="col">Funded</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Profit Target</th>
+                        <td>8% ($16,000)</td>
+                        <td>5% ($10,000)</td>
+                        <td aria-label="Not applicable">–</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Max Daily Loss</th>
+                        <td>5% ($10,000)</td>
+                        <td>5% ($10,000)</td>
+                        <td>5% ($10,000)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Max Loss</th>
+                        <td>10% ($20,000)</td>
+                        <td>10% ($20,000)</td>
+                        <td>10% ($20,000)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Min Days</th>
+                        <td>4</td>
+                        <td>4</td>
+                        <td aria-label="Not applicable">–</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Refundable Fee</th>
+                        <td aria-label="Not applicable">–</td>
+                        <td aria-label="Not applicable">–</td>
+                        <td>$999</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Leverage</th>
+                        <td>1:100</td>
+                        <td>1:100</td>
+                        <td>1:100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <!-- $5,000 Tab Panel -->
-    <div role="tabpanel" id="tab-1" aria-labelledby="btn-tab-1" class="comparison-table active">
-        <table>
-            <caption class="visually-hidden">$5,000 account - challenge conditions</caption>
-            <thead>
-                <tr>
-                    <th scope="col">
-                        <span class="fee-badge">FEE: $59</span>
-                    </th>
-                    <th scope="col">Phase 1</th>
-                    <th scope="col">Phase 2</th>
-                    <th scope="col">Funded</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Profit Target</th>
-                    <td>8% ($400)</td>
-                    <td>5% ($250)</td>
-                    <td aria-label="Not applicable">–</td>
-                </tr>
-                <tr>
-                    <th scope="row">Max Daily Loss</th>
-                    <td>5% ($250)</td>
-                    <td>5% ($250)</td>
-                    <td>5% ($250)</td>
-                </tr>
-                <tr>
-                    <th scope="row">Max Loss</th>
-                    <td>10% ($500)</td>
-                    <td>10% ($500)</td>
-                    <td>10% ($500)</td>
-                </tr>
-                <tr>
-                    <th scope="row">Min Days</th>
-                    <td>4</td>
-                    <td>4</td>
-                    <td aria-label="Not applicable">–</td>
-                </tr>
-                <tr>
-                    <th scope="row">Refundable Fee</th>
-                    <td aria-label="Not applicable">–</td>
-                    <td aria-label="Not applicable">–</td>
-                    <td>$59</td>
-                </tr>
-                <tr>
-                    <th scope="row">Leverage</th>
-                    <td>1:100</td>
-                    <td>1:100</td>
-                    <td>1:100</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <!-- $10,000 Tab Panel -->
-    <div role="tabpanel" id="tab-2" aria-labelledby="btn-tab-2" class="comparison-table" hidden>
-        <table>
-            <caption class="visually-hidden">$10,000 account - challenge conditions</caption>
-            <thead>
-                <tr>
-                    <th scope="col">
-                        <span class="fee-badge">FEE: $99</span>
-                    </th>
-                    <th scope="col">Phase 1</th>
-                    <th scope="col">Phase 2</th>
-                    <th scope="col">Funded</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Profit Target</th>
-                    <td>8% ($800)</td>
-                    <td>5% ($500)</td>
-                    <td aria-label="Not applicable">–</td>
-                </tr>
-                <tr>
-                    <th scope="row">Max Daily Loss</th>
-                    <td>5% ($500)</td>
-                    <td>5% ($500)</td>
-                    <td>5% ($500)</td>
-                </tr>
-                <tr>
-                    <th scope="row">Max Loss</th>
-                    <td>10% ($1000)</td>
-                    <td>10% ($1000)</td>
-                    <td>10% ($1000)</td>
-                </tr>
-                <tr>
-                    <th scope="row">Min Days</th>
-                    <td>4</td>
-                    <td>4</td>
-                    <td aria-label="Not applicable">–</td>
-                </tr>
-                <tr>
-                    <th scope="row">Refundable Fee</th>
-                    <td aria-label="Not applicable">–</td>
-                    <td aria-label="Not applicable">–</td>
-                    <td>$99</td>
-                </tr>
-                <tr>
-                    <th scope="row">Leverage</th>
-                    <td>1:100</td>
-                    <td>1:100</td>
-                    <td>1:100</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <!-- $25,000 Tab Panel -->
-    <div role="tabpanel" id="tab-3" aria-labelledby="btn-tab-3" class="comparison-table" hidden>
-        <table>
-            <caption class="visually-hidden">$25,000 account - challenge conditions</caption>
-            <thead>
-                <tr>
-                    <th scope="col">
-                        <span class="fee-badge">FEE: $219</span>
-                    </th>
-                    <th scope="col">Phase 1</th>
-                    <th scope="col">Phase 2</th>
-                    <th scope="col">Funded</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Profit Target</th>
-                    <td>8% ($2000)</td>
-                    <td>5% ($1250)</td>
-                    <td aria-label="Not applicable">–</td>
-                </tr>
-                <tr>
-                    <th scope="row">Max Daily Loss</th>
-                    <td>5% ($1250)</td>
-                    <td>5% ($1250)</td>
-                    <td>5% ($1250)</td>
-                </tr>
-                <tr>
-                    <th scope="row">Max Loss</th>
-                    <td>10% ($2500)</td>
-                    <td>10% ($2500)</td>
-                    <td>10% ($2500)</td>
-                </tr>
-                <tr>
-                    <th scope="row">Min Days</th>
-                    <td>4</td>
-                    <td>4</td>
-                    <td aria-label="Not applicable">–</td>
-                </tr>
-                <tr>
-                    <th scope="row">Refundable Fee</th>
-                    <td aria-label="Not applicable">–</td>
-                    <td aria-label="Not applicable">–</td>
-                    <td>$219</td>
-                </tr>
-                <tr>
-                    <th scope="row">Leverage</th>
-                    <td>1:100</td>
-                    <td>1:100</td>
-                    <td>1:100</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <!-- $50,000 Tab Panel -->
-    <div role="tabpanel" id="tab-4" aria-labelledby="btn-tab-4" class="comparison-table" hidden>
-        <table>
-            <caption class="visually-hidden">$50,000 account - challenge conditions</caption>
-            <thead>
-                <tr>
-                    <th scope="col">
-                        <span class="fee-badge">FEE: $349</span>
-                    </th>
-                    <th scope="col">Phase 1</th>
-                    <th scope="col">Phase 2</th>
-                    <th scope="col">Funded</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Profit Target</th>
-                    <td>8% ($4000)</td>
-                    <td>5% ($2500)</td>
-                    <td aria-label="Not applicable">–</td>
-                </tr>
-                <tr>
-                    <th scope="row">Max Daily Loss</th>
-                    <td>5% ($2500)</td>
-                    <td>5% ($2500)</td>
-                    <td>5% ($2500)</td>
-                </tr>
-                <tr>
-                    <th scope="row">Max Loss</th>
-                    <td>10% ($5000)</td>
-                    <td>10% ($5000)</td>
-                    <td>10% ($5000)</td>
-                </tr>
-                <tr>
-                    <th scope="row">Min Days</th>
-                    <td>4</td>
-                    <td>4</td>
-                    <td aria-label="Not applicable">–</td>
-                </tr>
-                <tr>
-                    <th scope="row">Refundable Fee</th>
-                    <td aria-label="Not applicable">–</td>
-                    <td aria-label="Not applicable">–</td>
-                    <td>$349</td>
-                </tr>
-                <tr>
-                    <th scope="row">Leverage</th>
-                    <td>1:100</td>
-                    <td>1:100</td>
-                    <td>1:100</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <!-- $100,000 Tab Panel -->
-    <div role="tabpanel" id="tab-5" aria-labelledby="btn-tab-5" class="comparison-table" hidden>
-        <table>
-            <caption class="visually-hidden">$100,000 account - challenge conditions</caption>
-            <thead>
-                <tr>
-                    <th scope="col">
-                        <span class="fee-badge">FEE: $549</span>
-                    </th>
-                    <th scope="col">Phase 1</th>
-                    <th scope="col">Phase 2</th>
-                    <th scope="col">Funded</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Profit Target</th>
-                    <td>8% ($8000)</td>
-                    <td>5% ($5000)</td>
-                    <td aria-label="Not applicable">–</td>
-                </tr>
-                <tr>
-                    <th scope="row">Max Daily Loss</th>
-                    <td>5% ($5000)</td>
-                    <td>5% ($5000)</td>
-                    <td>5% ($5000)</td>
-                </tr>
-                <tr>
-                    <th scope="row">Max Loss</th>
-                    <td>10% ($10000)</td>
-                    <td>10% ($10000)</td>
-                    <td>10% ($10000)</td>
-                </tr>
-                <tr>
-                    <th scope="row">Min Days</th>
-                    <td>4</td>
-                    <td>4</td>
-                    <td aria-label="Not applicable">–</td>
-                </tr>
-                <tr>
-                    <th scope="row">Refundable Fee</th>
-                    <td aria-label="Not applicable">–</td>
-                    <td aria-label="Not applicable">–</td>
-                    <td>$549</td>
-                </tr>
-                <tr>
-                    <th scope="row">Leverage</th>
-                    <td>1:100</td>
-                    <td>1:100</td>
-                    <td>1:100</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <!-- $200,000 Tab Panel -->
-    <div role="tabpanel" id="tab-6" aria-labelledby="btn-tab-6" class="comparison-table" hidden>
-        <table>
-            <caption class="visually-hidden">$200,000 account - challenge conditions</caption>
-            <thead>
-                <tr>
-                    <th scope="col">
-                        <span class="fee-badge">FEE: $999</span>
-                    </th>
-                    <th scope="col">Phase 1</th>
-                    <th scope="col">Phase 2</th>
-                    <th scope="col">Funded</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Profit Target</th>
-                    <td>8% ($16,000)</td>
-                    <td>5% ($10,000)</td>
-                    <td aria-label="Not applicable">–</td>
-                </tr>
-                <tr>
-                    <th scope="row">Max Daily Loss</th>
-                    <td>5% ($10,000)</td>
-                    <td>5% ($10,000)</td>
-                    <td>5% ($10,000)</td>
-                </tr>
-                <tr>
-                    <th scope="row">Max Loss</th>
-                    <td>10% ($20,000)</td>
-                    <td>10% ($20,000)</td>
-                    <td>10% ($20,000)</td>
-                </tr>
-                <tr>
-                    <th scope="row">Min Days</th>
-                    <td>4</td>
-                    <td>4</td>
-                    <td aria-label="Not applicable">–</td>
-                </tr>
-                <tr>
-                    <th scope="row">Refundable Fee</th>
-                    <td aria-label="Not applicable">–</td>
-                    <td aria-label="Not applicable">–</td>
-                    <td>$999</td>
-                </tr>
-                <tr>
-                    <th scope="row">Leverage</th>
-                    <td>1:100</td>
-                    <td>1:100</td>
-                    <td>1:100</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <div class="get-started-table">
+            <a href="#" class="btn-lime">
+                <button class="get-started-table-btn" title="Begin your investment journey">Get Started Now</button>
+            </a>
+        </div>
 </section>
 
 

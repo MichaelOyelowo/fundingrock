@@ -951,6 +951,10 @@ label[for*=account-option] > input {
     color: rgba(255, 255, 255, 0.7);
 }
 
+.features-dots {
+    display: none;
+}
+
 /* =============== RESPONSIVE: TABLET & MOBILE =============== */
 @media (max-width: 1024px) {
     .how-to-start {
@@ -975,8 +979,10 @@ label[for*=account-option] > input {
         display: none; 
     }
     .step {
+        height: 500px;
         flex: 0 0 340px; 
         scroll-snap-align: center;
+
     }
     .features {
         flex-direction: column;
@@ -1005,6 +1011,61 @@ label[for*=account-option] > input {
         flex-direction: column;
         gap: 24px;
         padding-bottom: 20px;
+    }
+
+    .features {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none; 
+        scroll-behavior: smooth;
+        gap: 0; 
+        padding-bottom: 1rem;
+        margin-bottom: 24px;
+    }
+
+    .features::-webkit-scrollbar {
+        display: none;
+    }
+
+    .feature {
+        flex: 0 0 100%;
+        min-width: 100%;
+        width: 100%;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        padding: 0 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center; 
+    }
+
+    /* show dots only on mobile */
+    .features-dots {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 40px;
+    }
+
+    .features-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        background-color: #303030;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, width 0.3s ease;
+    }
+
+    .features-dot.active {
+        width: 20px;
+        background-color: #D9FF00;
     }
 }
 
@@ -1315,8 +1376,7 @@ label[for*=account-option] > input {
 }
 
 
-
-
+/* =============== ACCOUNT SELECTION (DESKTOP BASE) =============== */
 .account-selection {
     max-width: 950px;
     margin: 60px auto;
@@ -1324,7 +1384,6 @@ label[for*=account-option] > input {
     color: #fff;
 }
 
-/* Typography & Headers */
 .account-selection .section-title {
     text-align: center;
     font-size: 2.8rem;
@@ -1340,6 +1399,17 @@ label[for*=account-option] > input {
     line-height: 1.6;
     max-width: 800px;
     margin: 0 auto 48px auto;
+}
+
+.pricing-card-wrapper {
+    position: relative;
+    border: none;
+    padding: 0;
+}
+
+
+.slider-arrow {
+    display: none; 
 }
 
 /* Tab Buttons */
@@ -1369,25 +1439,38 @@ label[for*=account-option] > input {
 }
 
 .account-selection .account-btn.active {
-    background-color: #c5ff00;;
+    background-color: #c5ff00;
     color: #000;
-    border-color: #c5ff00;;
+    border-color: #c5ff00;
     font-weight: 600;
 }
 
 /* Comparison Table Container */
 .account-selection .comparison-table {
-    border: 1px solid #c5ff00;;
+    border: 1px solid transparent;
+    background: linear-gradient(#0e0e0e, #0e0e0e) padding-box, 
+    linear-gradient(225deg, #D9FF00 0%, #303030 40%) border-box;
     border-radius: 8px;
     overflow-x: auto;
 }
 
-/* Hide inactive tabs natively */
+.account-selection .comparison-table::after {
+    content: url(../images/homepage/choose_account_mesh.svg);
+    position: absolute;
+    display: block;
+    width: 100%;
+    top: 100%;
+    left: 50%;                    /* add this */
+    transform: translateX(-50%);  /* add this */
+    z-index: -1;
+    pointer-events: none;
+    line-height: 0;
+}
+
 .account-selection .comparison-table[hidden] {
     display: none !important;
 }
 
-/* Fade in animation for active tabs */
 .account-selection .comparison-table.active {
     display: block;
     animation: fadeIn 0.4s ease;
@@ -1398,26 +1481,22 @@ label[for*=account-option] > input {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Table Structure */
+/* Desktop Table Formatting */
 .account-selection table {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
-    min-width: 600px; /* Prevents text crushing on narrow screens */
+    min-width: 600px;
 }
-
 .account-selection th, 
 .account-selection td {
     padding: 24px 20px;
     border-bottom: 1px solid #ffffff1a;
 }
-
 .account-selection table tr:last-child th,
 .account-selection table tr:last-child td {
     border-bottom: none;
 }
-
-/* Table Header Formatting */
 .account-selection thead th {
     color: #c5ff00;
     text-transform: uppercase;
@@ -1425,31 +1504,21 @@ label[for*=account-option] > input {
     font-weight: 600;
     vertical-align: middle;
 }
-
-.account-selection thead th:first-child {
-    text-align: left;
-}
-
-.account-selection thead th:not(:first-child) {
-    text-align: center;
-}
-
-/* Table Body Formatting */
+.account-selection thead th:first-child { text-align: left; }
+.account-selection thead th:not(:first-child) { text-align: center; }
 .account-selection tbody th {
     text-align: left;
     font-weight: 600;
     font-size: 0.95rem;
 }
-
 .account-selection tbody td {
     text-align: center;
     font-weight: 600;
     font-size: 0.95rem;
 }
 
-/* Green FEE Badge */
 .account-selection .fee-badge {
-    background-color: #c5ff00;;
+    background-color: #c5ff00;
     color: #000;
     padding: 6px 16px;
     border-radius: 30px;
@@ -1458,7 +1527,6 @@ label[for*=account-option] > input {
     display: inline-block;
 }
 
-/* Utility Class (Accessibility) */
 .visually-hidden {
     position: absolute !important;
     width: 1px !important;
@@ -1471,14 +1539,178 @@ label[for*=account-option] > input {
     border: 0 !important;
 }
 
-/* Responsive Scaling */
+.get-started-table {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0 0 0;
+}
+
+.get-started-table-btn {
+    background-color: #c5ff00;
+    color: #000;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity 0.2s ease;
+}
+
+.get-started-table-btn:hover {
+    opacity: 0.85;
+}
+
+/* =============== RESPONSIVE MOBILE STYLES =============== */
 @media (max-width: 768px) {
     .account-selection .section-title {
         font-size: 2.2rem;
     }
-    .account-selection th, 
-    .account-selection td {
-        padding: 16px 12px;
+    
+    .pricing-card-wrapper {
+        border: 1px solid transparent;
+        background: linear-gradient(#0e0e0e, #0e0e0e) padding-box,
+                    linear-gradient(225deg, #D9FF00 0%, #303030 40%) border-box;
+        border-radius: 12px;
+        padding: 30px 20px;
+        background-color: #0d0d0d;
+    }
+    
+    .account-selection .comparison-table {
+        border: none;
+        padding: 0;
+    }
+
+    .account-selection .account-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        gap: 0;
+    }
+    
+    .account-selection .account-btn { display: none; }
+    .account-selection .account-btn.active {
+        display: block;
+        background: transparent !important;
+        color: #fff !important;
+        border: none !important;
+        font-size: 2rem;
+        font-weight: 500;
+        padding: 0;
+    }
+
+    .slider-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: 1px solid #c5ff00;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .slider-arrow.disabled {
+        cursor: not-allowed;
+        border-color: #333 !important;
+    }
+
+    .slider-arrow.disabled svg {
+        fill: #666 !important;
+    }
+
+    .slider-arrow svg {
+        fill: #c5ff00;
+        width: 28px;
+        height: 28px;
+    }
+    .slider-arrow:active, 
+    .slider-arrow:focus {
+        border-color: #c5ff00;
+    }
+    .slider-arrow:active svg, 
+    .slider-arrow:focus svg {
+        fill: #c5ff00;
+    }
+
+    /* 3. Transform Table into Interactive Mobile Tabs */
+    .account-selection table, 
+    .account-selection thead, 
+    .account-selection tbody, 
+    .account-selection tr {
+        display: block;
+        width: 100%;
+        min-width: unset;
+    }
+
+    .account-selection thead tr {
+        display: flex;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #333; /* Line under tabs */
+    }
+
+    /* Move the FEE badge directly under the amount */
+    .account-selection thead th:first-child {
+        width: 100%;
+        text-align: center;
+        border-bottom: none;
+        padding: 0 0 32px 0;
+    }
+
+    /* Style 'Phase 1', 'Phase 2', 'Funded' as Tabs */
+    .account-selection thead th:not(:first-child) {
+        flex: 1;
+        text-align: center;
+        padding: 0 0 12px 0;
+        color: #999;
         font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        margin-bottom: -1px; /* Overlap the grey border */
+        transition: color 0.3s ease;
+    }
+    .account-selection thead th:not(:first-child).active-tab {
+        color: #c5ff00;
+        border-bottom: 2px solid #c5ff00;
+    }
+
+    /* Adjust Row Key-Value Formatting */
+    .account-selection tbody tr {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+        border-bottom: 1px solid #222;
+    }
+    .account-selection tbody tr:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    .account-selection tbody th {
+        padding: 0;
+        border: none;
+        color: #aaa;
+        font-weight: 400;
+        font-size: 0.95rem;
+    }
+    .account-selection tbody td {
+        padding: 0;
+        border: none;
+        display: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: #fff;
+    }
+
+    /* Only show the column that matches the active-col data attribute! */
+    table[data-active-col="1"] tbody td:nth-child(2),
+    table[data-active-col="2"] tbody td:nth-child(3),
+    table[data-active-col="3"] tbody td:nth-child(4) {
+        display: block;
     }
 }

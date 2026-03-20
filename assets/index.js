@@ -69,6 +69,38 @@ function flipBrands() {
 
 setInterval(flipBrands, 5000);
 
+
+/* =============== Why Choose carousel dots (mobile only) =============== */
+
+const featuresCarousel = document.getElementById('featuresCarousel');
+const featureCards = document.querySelectorAll('.feature');
+const featureDots = document.querySelectorAll('.features-dot');
+
+function setFeatureDot(index) {
+    featureDots.forEach(dot => {
+        dot.classList.remove('active');
+        dot.setAttribute('aria-selected', 'false');
+    });
+    featureDots[index].classList.add('active');
+    featureDots[index].setAttribute('aria-selected', 'true');
+}
+
+// update dot on scroll
+featuresCarousel.addEventListener('scroll', () => {
+    const index = Math.round(featuresCarousel.scrollLeft / featuresCarousel.offsetWidth);
+    setFeatureDot(index);
+});
+
+// dot click scrolls to that feature
+featureDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        featuresCarousel.scrollTo({ left: index * featuresCarousel.offsetWidth, behavior: 'smooth' });
+    });
+});
+
+
+
+
 /* =============== TESTIMONIALS =============== */
 
 const modal = document.getElementById('videoModal');
@@ -144,29 +176,106 @@ dots.forEach((dot, index) => {
 });
 
 /* =============== ACCOUNT SELECTION =============== */
-const tabs = document.querySelectorAll('.account-btn');
-const tabPanels = document.querySelectorAll('.comparison-table');
 
-tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
+document.addEventListener('DOMContentLoaded', () => {
+    // --- 1. Master Account Selection Logic ---
+    const tabs = Array.from(document.querySelectorAll('.account-btn'));
+    const tabPanels = document.querySelectorAll('.comparison-table');
+    const btnPrev = document.querySelector('.slider-arrow.backward');
+    const btnNext = document.querySelector('.slider-arrow.forward');
+
+    function updateArrowStates(index) {
+        // Disable Left Arrow if at the start (index 0)
+        if (index === 0) {
+            btnPrev.classList.add('disabled');
+        } else {
+            btnPrev.classList.remove('disabled');
+        }
+
+        // Disable Right Arrow if at the end (last index)
+        if (index === tabs.length - 1) {
+            btnNext.classList.add('disabled');
+        } else {
+            btnNext.classList.remove('disabled');
+        }
+    }
+
+    function activateAccountTab(index) {
+        // Reset all buttons & panels
         tabs.forEach(t => {
             t.classList.remove('active');
             t.setAttribute('aria-selected', 'false');
         });
-
         tabPanels.forEach(p => {
             p.classList.remove('active');
             p.setAttribute('hidden', 'true');
         });
 
-        tab.classList.add('active');
-        tab.setAttribute('arial-selected', 'true');
-
-        const panelId = tab.getAttribute('aria-controls');
+        // Activate selected
+        tabs[index].classList.add('active');
+        tabs[index].setAttribute('aria-selected', 'true');
+        
+        const panelId = tabs[index].getAttribute('aria-controls');
         const panel = document.getElementById(panelId);
         if (panel) {
             panel.classList.add('active');
             panel.removeAttribute('hidden');
         }
+
+        // Update Arrow Visuals
+        updateArrowStates(index);
+    }
+
+    // Attach click events to desktop buttons
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activateAccountTab(index));
+    });
+
+    // --- 2. Mobile Arrow Carousel Logic (NO LOOPING) ---
+    btnPrev.addEventListener('click', () => {
+        let activeIndex = tabs.findIndex(t => t.classList.contains('active'));
+        // Only move backward if we are NOT at the beginning
+        if (activeIndex > 0) {
+            activateAccountTab(activeIndex - 1);
+        }
+    });
+
+    btnNext.addEventListener('click', () => {
+        let activeIndex = tabs.findIndex(t => t.classList.contains('active'));
+        // Only move forward if we are NOT at the end
+        if (activeIndex < tabs.length - 1) {
+            activateAccountTab(activeIndex + 1);
+        }
+    });
+
+    // Run once on load to set the initial arrow disabled states properly
+    let initialIndex = tabs.findIndex(t => t.classList.contains('active'));
+    updateArrowStates(initialIndex >= 0 ? initialIndex : 0);
+
+    // --- 3. Mobile Table Tabs (Phase 1, Phase 2, Funded) ---
+    const tables = document.querySelectorAll('.comparison-table table');
+    
+    tables.forEach(table => {
+        // AUTO-FIX: Force every table to show column 1 (Phase 1) on load
+        // This solves the "missing content" issue automatically!
+        table.setAttribute('data-active-col', '1');
+        const firstTab = table.querySelector('thead th:nth-child(2)');
+        if (firstTab) firstTab.classList.add('active-tab');
+
+        // Grab all headers EXCEPT the first one (which contains the FEE badge)
+        const headers = table.querySelectorAll('thead th:not(:first-child)');
+
+        headers.forEach((th, index) => {
+            th.addEventListener('click', () => {
+                // Remove active class from all headers in this table
+                headers.forEach(h => h.classList.remove('active-tab'));
+                // Add active class to the clicked header
+                th.classList.add('active-tab');
+                
+                // Update the table's data attribute (1-based index)
+                // This triggers the CSS rules to show the matching column!
+                table.setAttribute('data-active-col', index + 1);
+            });
+        });
     });
 });

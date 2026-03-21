@@ -279,3 +279,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+/* =============== PAYOUT CERTIFICATES =============== */
+
+/* =============== PAYOUT CERTIFICATES =============== */
+const certCarousel = document.querySelector('.certificate-container');
+const certCards = document.querySelectorAll('.certificate');
+const certDots = document.querySelectorAll('.payout-certificates .dot');
+
+function setCertDot(index) {
+    certDots.forEach(dot => dot.classList.remove('active'));
+    if (certDots[index]) certDots[index].classList.add('active');
+}
+
+certCarousel.addEventListener('scroll', () => {
+    const cardWidth = certCards[0].offsetWidth + 16;
+    const index = Math.round(certCarousel.scrollLeft / cardWidth);
+    setCertDot(index);
+});
+
+certDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        const cardWidth = certCards[0].offsetWidth + 16;
+        certCarousel.scrollTo({ 
+            left: index * cardWidth, 
+            behavior: 'smooth' 
+        });
+    });
+});

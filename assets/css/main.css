@@ -1480,8 +1480,8 @@ label[for*=account-option] > input {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0}
+    to { opacity: 1 }
 }
 
 /* Desktop Table Formatting */
@@ -1733,10 +1733,10 @@ label[for*=account-option] > input {
         background-color: #c5ff00;
         color: #000;
         border: none;
-        padding: 24px 30px;
+        padding: 16px 30px;
         border-radius: 6px;
-        font-size: 1rem;
-        font-weight: 700;
+        font-size: 0.8rem;
+        font-weight: 600;
         cursor: pointer;
         font-family: inherit;
         transition: opacity 0.2s ease;

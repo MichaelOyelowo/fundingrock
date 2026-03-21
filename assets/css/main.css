@@ -438,7 +438,7 @@ a {
     flex: 1;
     position: relative;
     height: 100%;
-    background: url(../images/img_vector_hero.svg) no-repeat right bottom;
+    background: url(../images/homepage/img_vector_hero.svg) no-repeat right bottom;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end; 
@@ -495,7 +495,7 @@ a {
     .hero-image {
         width: 100%;
         margin-top: -20px;
-        background: url('../images/img_vector_hero.svg') no-repeat right bottom;
+        background: url('../images/homepage/img_vector_hero.svg') no-repeat right bottom;
         background-size: cover;
     }
     .hero-bg {
@@ -1771,7 +1771,6 @@ label[for*=account-option] > input {
 
 .payout-certificates {
     position: relative;
-    padding: 60px 0;
 }
 
 .certificate-container {
@@ -1955,3 +1954,16 @@ label[for*=account-option] > input {
 }
 
 
+/* =============== TRADING PLATFORM =============== */
+
+.trading-platform {
+    display: flex;
+    gap: 87px;
+    padding: 0 111px;
+    margin-bottom: 73px;
+}
+
+.platform-content {
+    flex: 1;
+    max-width: 546px;
+}

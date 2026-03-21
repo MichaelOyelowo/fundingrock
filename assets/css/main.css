@@ -2226,9 +2226,11 @@ label[for*=account-option] > input {
         line-height: 42px;
     }
     .platform-demo {
-        transform: scale(0.65); 
+        transform: translateX(-10%) scale(0.55); 
         transform-origin: top center;
         min-height: 330px;
         margin-bottom: -40px; 
     }
+     
 }
+

@@ -2226,7 +2226,7 @@ label[for*=account-option] > input {
         line-height: 42px;
     }
     .platform-demo {
-        transform: translateX(-10%) scale(0.55); 
+        transform: translateX(-15%) scale(0.55); 
         transform-origin: top center;
         min-height: 330px;
         margin-bottom: -40px; 

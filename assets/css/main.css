@@ -2234,3 +2234,332 @@ label[for*=account-option] > input {
      
 }
 
+
+/* =============== FEATURE GRID =============== */
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 75px;
+    padding: 0 111px;
+    margin-bottom: 76px;
+}
+
+.feature-item {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: opacity 0.6s, transform 0.6s;
+}
+
+.feature-item-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 24px;
+}
+
+.feature-item-title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.feature-item-description {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+    color: rgba(255, 255, 255, 0.76);
+    margin-bottom: 1rem;
+}
+
+/* =============== FEATURE GRID RESPONSIVE =============== */
+
+@media (max-width: 1024px) {
+    .features-grid {
+        padding: 0 60px;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 960px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 24px;
+        gap: 32px;
+        margin-bottom: 48px;
+    }
+}
+
+@media (max-width: 600px) {
+    .features-grid {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0 24px;
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .feature-item:last-child {
+        border-bottom: none;
+    }
+
+    .feature-item-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    .feature-item-title {
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 0; 
+    }
+
+    .feature-item-description {
+        display: none;
+    }
+}
+
+/* =============== SUPPORT BANNER =============== */
+.section-block {
+    text-align: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.support-banner {
+    background: linear-gradient(90deg, rgba(129, 76, 239, 0.24) 0%, rgba(0, 216, 195, 0.24) 50%, rgba(108, 228, 3, 0.24) 100%);
+    border-radius: 24px;
+    padding: 12px 24px;
+    margin: 0 auto 198px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.support-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.support-title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #D9FF00;
+}
+
+.support-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.divider {
+    height: 0;
+    border-top: 1px #303030 solid;
+    width: 100%;
+}
+
+
+
+/* =============== ACADEMY SECTION =============== */
+.academy {
+    display: flex;
+    gap: 72px;
+    padding: 0 111px;
+    margin: 130px 0 48px;
+}
+
+.academy-image {
+    flex: 1;
+    position: relative;
+    max-width: 590px;
+    height: 500px;
+}
+
+.academy-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    position: absolute;
+    left: 0;
+}
+
+.academy-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(14, 14, 14, 0.9) 15%, rgba(14, 14, 14, 0) 100%);
+    pointer-events: none;
+}
+
+.academy-content {
+    flex: 1;
+    max-width: 546px;
+}
+
+.academy-title {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 52px;
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
+.academy-title .highlight {
+    color: #D9FF00;
+}
+
+.academy-description {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 25px;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 24px;
+}
+
+.academy-features {
+    margin-bottom: 56px;
+}
+
+.academy-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.academy-feature-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.academy-feature-text {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.academy-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d1ff00;
+    color: #000000;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    gap: 10px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.academy-btn:hover {
+    background-color: #bce600;
+    transform: translateY(-2px);
+}
+
+.academy-btn-img {
+    width: 20px;
+    height: 20px;
+}
+
+/* =============== RESPONSIVE ACADEMY SECTION =============== */
+
+/* Tablet Breakpoint */
+@media (max-width: 1024px) {
+    .academy {
+        padding: 0 40px; /* Reduce large side paddings */
+        gap: 40px; /* Reduce gap between image and text */
+        margin: 100px 0 40px;
+    }
+
+    .academy-title {
+        font-size: 40px;
+        line-height: 46px;
+    }
+
+    .academy-image {
+        height: 400px; /* Scale down the image height slightly */
+    }
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 768px) {
+    .academy {
+        flex-direction: column; /* Stack the image and content */
+        padding: 0 20px;
+        margin: 60px 0 40px;
+        text-align: center; /* Center align text for mobile */
+    }
+
+    .academy-image {
+        width: 100%;
+        max-width: 100%;
+        height: 350px; /* Prevent the image from taking up the whole mobile screen */
+    }
+
+    .academy-content {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the inner elements */
+    }
+
+    .academy-title {
+        font-size: 32px;
+        line-height: 38px;
+    }
+
+    .academy-description {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 32px;
+    }
+
+    /* Keep features neat and centered on mobile */
+    .academy-features {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .academy-feature {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+/* Small Mobile Breakpoint */
+@media (max-width: 480px) {
+    .academy-title {
+        font-size: 28px;
+        line-height: 34px;
+    }
+
+    .academy-image {
+        height: 300px; /* Scale image down a bit more for very small screens */
+    }
+}

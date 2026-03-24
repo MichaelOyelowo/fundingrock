@@ -2540,3 +2540,182 @@ label[for*=account-option] > input {
         justify-content: flex-start; 
     }
 }
+
+/* =============== ACADEMY TOP 3 =============== */
+.academy-top3 {
+    margin-bottom: 166px;
+}
+
+.academy-top3-title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    color: #ffffff;
+    margin-bottom: 39px;
+    text-align: center;
+}
+
+.academy-cards {
+    display: flex;
+    gap: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.academy-cards::-webkit-scrollbar {
+    display: none;
+}
+
+.academy-card {
+    flex: 0 0 calc(33.3% - 1rem); /* fixed width */
+    background-color: #0e0e0e;
+    border-radius: 8px;
+    position: relative;
+    scroll-snap-align: center;
+}
+
+/* button wrapping the image */
+.academy-card-play {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+.academy-card-icon {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.academy-card-play:hover .academy-card-icon {
+    transform: scale(1.03);
+}
+
+.academy-desc {
+    padding: 16px;
+}
+
+.academy-desc-title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.academy-desc-text {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* Dots */
+.academy-top3 .carousel-dots {
+    display: none; /* hidden on desktop */
+    justify-content: center;
+    gap: 16px;
+    margin-top: 2rem;
+}
+
+.academy-top3 .carousel-dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: #555;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, width 0.3s ease;
+}
+
+.academy-top3 .carousel-dots .dot.active {
+    width: 20px;
+    background-color: #D9FF00;
+}
+
+/* =============== ACADEMY RESPONSIVE =============== */
+
+@media (max-width: 1024px) {
+    .academy-card {
+        flex: 0 0 calc(40% - 1rem);
+    }
+
+    .academy-top3-title {
+        padding: 0 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .academy-top3 {
+        margin-bottom: 80px;
+    }
+
+    .academy-cards {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .academy-card {
+        flex: 0 0 calc(60% - 1rem);
+    }
+
+    .academy-desc-title {
+        font-size: 16px;
+    }
+
+    .academy-desc-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .academy-top3 {
+        margin-bottom: 60px;
+    }
+
+    .academy-top3-title {
+        font-size: 20px;
+        text-align: left;
+        padding: 0 16px;
+        margin-bottom: 24px;
+    }
+
+    .academy-cards {
+        padding-left: 16px;
+        padding-right: 16px;
+        gap: 12px;
+    }
+
+    .academy-card {
+        flex: 0 0 80vw; /* most of screen, next card peeks */
+    }
+
+    .academy-desc {
+        padding: 12px;
+    }
+
+    .academy-desc-title {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .academy-desc-text {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    /* show dots on mobile */
+    .academy-top3 .carousel-dots {
+        display: flex;
+    }
+}

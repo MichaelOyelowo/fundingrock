@@ -282,8 +282,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* =============== PAYOUT CERTIFICATES =============== */
-
-/* =============== PAYOUT CERTIFICATES =============== */
 const certCarousel = document.querySelector('.certificate-container');
 const certCards = document.querySelectorAll('.certificate');
 const certDots = document.querySelectorAll('.payout-certificates .dot');
@@ -305,6 +303,39 @@ certDots.forEach((dot, index) => {
         certCarousel.scrollTo({ 
             left: index * cardWidth, 
             behavior: 'smooth' 
+        });
+    });
+});
+
+
+/* =============== ACADEMY CAROUSEL =============== */
+const academyCarousel = document.querySelector('.academy-cards');
+const academyCards = document.querySelectorAll('.academy-card');
+const academyDots = document.querySelectorAll('.academy-top3 .dot');
+
+function setAcademyDot(index) {
+    academyDots.forEach(dot => {
+        dot.classList.remove('active');
+        dot.setAttribute('aria-selected', 'false');
+    });
+    if (academyDots[index]) {
+        academyDots[index].classList.add('active');
+        academyDots[index].setAttribute('aria-selected', 'true');
+    }
+}
+
+academyCarousel.addEventListener('scroll', () => {
+    const cardWidth = academyCards[0].offsetWidth + 12;
+    const index = Math.round(academyCarousel.scrollLeft / cardWidth);
+    setAcademyDot(index);
+});
+
+academyDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        const cardWidth = academyCards[0].offsetWidth + 12;
+        academyCarousel.scrollTo({
+            left: index * cardWidth,
+            behavior: 'smooth'
         });
     });
 });

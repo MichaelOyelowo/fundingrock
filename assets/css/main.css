@@ -3194,7 +3194,7 @@ footer {
     font-size: 14px;
     font-weight: 300;
     line-height: 24px;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
     font-style: normal;
     display: flex;
     flex-direction: column;
@@ -3203,7 +3203,7 @@ footer {
 
 .footer-email,
 .footer-address a {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: underline;
     transition: color 0.2s ease;
 }
@@ -3237,7 +3237,7 @@ footer {
 .footer-company a {
     font-size: 14px;
     font-weight: 300;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     transition: color 0.2s ease;
 }
@@ -3340,7 +3340,7 @@ footer {
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 1px;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 16px;
 }
 
@@ -3361,7 +3361,7 @@ footer {
     font-size: 12px;
     font-weight: 300;
     line-height: 20px;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255);
     max-width: 100%;
 }
 

@@ -99,43 +99,52 @@ featureDots.forEach((dot, index) => {
 });
 
 
-
-
-/* =============== TESTIMONIALS =============== */
-
+/* =============== TESTIMONIALS + ACADEMY YOUTUBE MODAL =============== */
 const modal = document.getElementById('videoModal');
 const player = document.getElementById('youtubePlayer');
 const closeBtn = document.querySelector('.close-modal');
 
+function openModal(rawUrl) {
+    if (rawUrl.includes('watch?v=')) {
+        const videoId = rawUrl.split('v=')[1].split('&')[0];
+        player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    } else {
+        // handles short URLs like youtu.be/XYZ
+        const videoId = rawUrl.split('/').pop().split('?')[0];
+        player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    }
+    modal.style.display = 'block';
+    modal.setAttribute('aria-hidden', 'false');
+}
+
+function closeModal() {
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+    player.src = '';
+}
+
+// Testimonial cards
 document.querySelectorAll('.testimonial-card').forEach(card => {
     card.addEventListener('click', () => {
-        const playBtn = card.querySelector('.testimonial-play');
-        let rawUrl = playBtn.getAttribute('data-yt');
-
-        // Convert standard YouTube URL to Embed format
-        // Example: watch?v=XYZ becomes /embed/XYZ
-        if (rawUrl.includes('watch?v=')) {
-            const videoId = rawUrl.split('v=')[1].split('&')[0];
-            const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-            
-            player.src = embedUrl;
-            modal.style.display = 'block';
-        }
+        const rawUrl = card.querySelector('.testimonial-play').getAttribute('data-yt');
+        openModal(rawUrl);
     });
 });
 
-// Close modal when clicking 'X' or outside the video
-closeBtn.onclick = () => {
-    modal.style.display = 'none';
-    player.src = ""; // Stops the video
+// Academy cards
+document.querySelectorAll('.academy-card-play').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const rawUrl = btn.getAttribute('data-yt');
+        openModal(rawUrl);
+    });
+});
+
+// Close modal
+closeBtn.onclick = closeModal;
+window.onclick = (event) => {
+    if (event.target == modal) closeModal();
 };
 
-window.onclick = (event) => {
-    if (event.target == modal) {
-        modal.style.display = 'none';
-        player.src = "";
-    }
-};
 
 // Carousel logic
 const carousel = document.querySelector('.testimonials-carousel');
@@ -339,3 +348,31 @@ academyDots.forEach((dot, index) => {
         });
     });
 });
+
+
+/* =============== FAQ =============== */
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+
+    question.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        // close all items first
+        faqItems.forEach(i => {
+            i.classList.remove('open');
+            i.querySelector('.faq-answer').setAttribute('hidden', '');
+            i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        // if it wasn't open, open it
+        if (!isOpen) {
+            item.classList.add('open');
+            answer.removeAttribute('hidden');
+            question.setAttribute('aria-expanded', 'true');
+        }
+    })
+
+})

@@ -376,3 +376,92 @@ faqItems.forEach(item => {
     })
 
 })
+
+
+/* ================= NEWSLETTER FORM FULL SCRIPT ================= */
+
+// (function() {
+//     emailjs.init("WbgluvkOwLwWUVfx8"); 
+// })();
+
+// document.getElementById('newsletter-form').addEventListener('submit', async (e) => {
+//     e.preventDefault();
+
+//     const emailInput = document.getElementById('newsletter-email');
+//     const emailValue = emailInput.value.trim();
+//     const status = document.getElementById('newsletter-status');
+//     const btn = document.querySelector('.newsletter-btn');
+
+//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+//     if (!emailRegex.test(emailValue)) {
+//         status.textContent = 'Please enter a valid email address.';
+//         status.style.color = '#ff4444';
+//         emailInput.focus();
+//         return;
+//     }
+
+//     btn.disabled = true;
+//     const originalBtnText = btn.textContent;
+//     btn.textContent = 'Subscribing...';
+//     status.textContent = '';
+
+//     try {
+//         await emailjs.send('service_1jjcazf', 'template_29ufjip', {
+//             email: emailValue,
+//             signup_date: new Date().toLocaleString()
+//         });
+
+//         status.textContent = '✓ Successfully subscribed!';
+//         status.style.color = '#D9FF00';
+//         emailInput.value = '';
+
+//     } catch (error) {
+//         console.error('EmailJS Error:', error);
+//         status.textContent = 'Something went wrong. Please try again.';
+//         status.style.color = '#ff4444';
+
+//     } finally {
+//         btn.disabled = false;
+//         btn.textContent = originalBtnText;
+//     }
+// });
+
+/* =============== NEWSLETTER FORM =============== */
+document.getElementById('newsletter-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const email = document.getElementById('newsletter-email').value;
+    const status = document.getElementById('newsletter-status');
+    const btn = document.querySelector('.newsletter-btn');
+
+    // Basic validation
+    if (!email || !email.includes('@')) {
+        status.textContent = 'Please enter a valid email address.';
+        status.style.color = '#ff4444';
+        return;
+    }
+
+    // Disable button while submitting
+    btn.disabled = true;
+    btn.textContent = 'Subscribing...';
+    status.textContent = '';
+
+    try {
+        // Option 1 - EmailJS (no backend needed)
+        await emailjs.send('service_1jjcazf', 'template_29ufjip', {
+            email: email
+        }, 'WbgluvkOwLwWUVfx8');
+
+        status.textContent = '✓ Successfully subscribed!';
+        status.style.color = '#D9FF00';
+        document.getElementById('newsletter-email').value = '';
+
+    } catch (error) {
+        status.textContent = 'Something went wrong. Please try again.';
+        status.style.color = '#ff4444';
+    } finally {
+        btn.disabled = false;
+        btn.textContent = 'Subscribe';
+    }
+});

@@ -3166,3 +3166,268 @@ label[for*=account-option] > input {
         height: 18px;
     }
 }
+
+
+/* =============== FOOTER =============== */
+footer {
+    background-color: #0a0a0a;
+    border-top: 1px solid #303030;
+    padding: 60px 80px 40px 80px;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    margin-bottom: 48px;
+}
+
+/* Company Info */
+.footer-logo {
+    width: 160px;
+    height: auto;
+    margin-bottom: 24px;
+    display: block;
+}
+
+.footer-address {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.footer-email,
+.footer-address a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.footer-email:hover,
+.footer-address a:hover {
+    color: #D9FF00;
+}
+
+/* Nav Links */
+.footer-section-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 24px;
+    display: block;
+}
+
+.footer-links ul,
+.footer-company ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-links a,
+.footer-company a {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover,
+.footer-company a:hover {
+    color: #D9FF00;
+}
+
+/* Newsletter */
+.footer-newsletter .footer-section-title {
+    font-size: 11px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+
+.newsletter-input {
+    flex: 1;
+    background-color: #111;
+    border: 1px solid #303030;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #fff;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.newsletter-input:focus {
+    border-color: rgba(217, 255, 0, 0.5);
+}
+
+.newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-btn {
+    background-color: #D9FF00;
+    color: #000;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+}
+
+.newsletter-btn:hover {
+    opacity: 0.85;
+}
+
+.newsletter-status {
+    font-size: 13px;
+    margin-top: 8px;
+    min-height: 20px;
+}
+
+/* App Download */
+.app-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.app-badges {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.app-badge {
+    height: 40px;
+    width: auto;
+}
+
+/* Dividers */
+.footer-divider,
+.footer-bottom-divider {
+    border: none;
+    border-top: 1px solid #1a1a1a;
+    margin: 0 0 32px 0;
+}
+
+/* Payment Methods */
+.payment-methods {
+    margin-bottom: 32px;
+}
+
+.payment-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 16px;
+}
+
+.payment-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.payment-icon {
+    height: 32px;
+    width: auto;
+}
+
+/* Disclaimer */
+.footer-disclaimer {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.3);
+    max-width: 100%;
+}
+
+/* =============== FOOTER RESPONSIVE =============== */
+@media (max-width: 1024px) {
+    footer {
+        padding: 48px 40px 32px 40px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 40px 24px 32px 24px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+    }
+
+    .footer-info {
+        grid-column: 1 / -1;
+    }
+
+    .footer-newsletter {
+        grid-column: 1 / -1; 
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 32px 16px 24px 16px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-btn {
+        width: 100%;
+        padding: 14px;
+    }
+
+    .app-badges {
+        flex-direction: column;
+    }
+
+    .app-badge {
+        height: 44px;
+    }
+
+    .payment-icons {
+        gap: 8px;
+    }
+
+    .payment-icon {
+        height: 28px;
+    }
+}

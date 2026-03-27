@@ -4,7 +4,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, Go
 from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA_zfPqVLj6Zwy8dr-7bzMjKuLrJ7jeGxY",
+    apiKey: "AIzaSyCrITBySoELew7yVPWDGhMOAi4Jcv_MeR8",
     authDomain: "funding-rock-test.firebaseapp.com",
     projectId: "funding-rock-test",
     storageBucket: "funding-rock-test.firebasestorage.app",
@@ -49,7 +49,7 @@ if (signupForm) {
             await createUserWithEmailAndPassword(auth, email, password);
             status.textContent = '✓ Account created! Redirecting...';
             status.style.color = '#D9FF00';
-            setTimeout(() => window.location.href = '/', 2000);
+            setTimeout(() => window.location.href = 'dashboard.html', 2000);
         } catch (error) {
             status.style.color = '#ff4444';
             switch(error.code) {
@@ -87,7 +87,7 @@ if (loginForm) {
             await signInWithEmailAndPassword(auth, email, password);
             status.textContent = '✓ Login successful! Redirecting...';
             status.style.color = '#D9FF00';
-            setTimeout(() => window.location.href = '/', 2000);
+            setTimeout(() => window.location.href = 'dashboard.html', 2000);
         } catch (error) {
             status.style.color = '#ff4444';
             switch(error.code) {
@@ -113,7 +113,7 @@ googleBtns.forEach(btn => {
     btn.addEventListener('click', async () => {
         try {
             await signInWithPopup(auth, googleProvider);
-            window.location.href = '/';
+            window.location.href = 'dashboard.html';
         } catch (error) {
             console.error(error.message);
         }

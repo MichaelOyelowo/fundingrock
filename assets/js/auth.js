@@ -112,10 +112,33 @@ const googleBtns = document.querySelectorAll('.google-btn');
 googleBtns.forEach(btn => {
     btn.addEventListener('click', async () => {
         try {
-            await signInWithPopup(auth, googleProvider);
+            const result = await signInWithPopup(auth, googleProvider);
+            const user = result.user;
+            console.log('Google login success:', user.email);
             window.location.href = 'dashboard.html';
         } catch (error) {
-            console.error(error.message);
+            console.error('Google error code:', error.code);
+            console.error('Google error message:', error.message);
+            
+            // Show error to user
+            const status = document.getElementById('login-status') || 
+                          document.getElementById('signup-status');
+            if (status) {
+                status.style.color = '#ff4444';
+                switch(error.code) {
+                    case 'auth/popup-blocked':
+                        status.textContent = 'Popup was blocked. Please allow popups for this site.';
+                        break;
+                    case 'auth/popup-closed-by-user':
+                        status.textContent = 'Sign in was cancelled.';
+                        break;
+                    case 'auth/unauthorized-domain':
+                        status.textContent = 'This domain is not authorized. Please contact support.';
+                        break;
+                    default:
+                        status.textContent = 'Google sign in failed. Please try again.';
+                }
+            }
         }
     });
 });
